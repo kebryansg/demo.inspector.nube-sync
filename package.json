@@ -10,7 +10,7 @@
     "prod": "tsc && node dist/index.js",
     "postinstall": "tsc",
     "start": "node dist/index.js",
-    "deploy": "git add . && git commit -m Heroku && git push master"
+    "deploy": "git add . && git commit -m Heroku && git push"
   },
   "author": "",
   "license": "ISC",
