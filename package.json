@@ -2,13 +2,12 @@
   "name": "demo.apinube",
   "version": "1.0.0",
   "description": "Api Rest Nube Sync",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev  --respawn --transpile-only ./src/index.ts",
     "debug": "ts-node-dev %NODE_DEBUG_OPTION% --respawn --transpileOnly ./src/index.ts",
-    "prod": "tsc && node ./src/index.js",
-    "tsc": "tsc",
+    "prod": "tsc && node ./dist/index.js",
     "start": "tsc && node ./dist/index.js"
   },
   "author": "",
