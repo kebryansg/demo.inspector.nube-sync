@@ -19,6 +19,11 @@ export class FileControllers {
         this.app = admin.initializeApp(firebaseConfig)
     }
 
+    @Post('/reply')
+    getReply(@Body() body: any) {
+        return body
+    }
+
     @Post('/download')
     getAll(@Body() body: any) {
         const {fileName} = body
@@ -26,5 +31,6 @@ export class FileControllers {
         return bucket.file(fileName)
             .download()
             .then(data => data[0])
+            .catch(error => {})
     }
 }
