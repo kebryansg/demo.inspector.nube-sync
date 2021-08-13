@@ -28,10 +28,11 @@ export class FileControllers {
     getFile(@Param("folder") folder: string, @Param("fileName") fileName: string) {
         // const {fileName} = body
         const bucket = admin.storage().bucket();
-        return bucket.file(folder + '/' + fileName)
+        return bucket.file(folder + '/' + fileName + ".json")
             .download()
             .then(data => data[0])
-            .catch(error => {})
+            .catch(error => {
+            })
     }
 
     @Post('/download')
