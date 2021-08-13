@@ -1,4 +1,4 @@
-import {Body, JsonController, Post} from "routing-controllers";
+import {Body, Get, JsonController, Param, Post} from "routing-controllers";
 import * as admin from 'firebase-admin';
 
 const firebaseConfig = {
@@ -24,6 +24,16 @@ export class FileControllers {
         return body
     }
 
+    @Get('/data/:folder/:fileName')
+    getFile(@Param("folder") folder: string, @Param("fileName") fileName: string) {
+        // const {fileName} = body
+        const bucket = admin.storage().bucket();
+        return bucket.file(folder + '/' + fileName)
+            .download()
+            .then(data => data[0])
+            .catch(error => {})
+    }
+
     @Post('/download')
     getAll(@Body() body: any) {
         const {fileName} = body
@@ -31,6 +41,7 @@ export class FileControllers {
         return bucket.file(fileName)
             .download()
             .then(data => data[0])
-            .catch(error => {})
+            .catch(error => {
+            })
     }
 }
